@@ -2,5 +2,7 @@
   id: @recipe.id,
   title: @recipe.title,
   directions: @recipe.directions,
-  prep_time: @recipe.prep_time
+  prep_time: @recipe.prep_time,
+  ingredients: @recipe.ingredients,
+  chef: @recipe.chef
 }
