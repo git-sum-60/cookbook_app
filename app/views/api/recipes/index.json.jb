@@ -2,8 +2,11 @@
   {
     id: recipe.id,
     title: recipe.title,
-    directions: recipe.directions,
-    prep_time: recipe.prep_time,
-    chef: recipe.chef
+    directions: recipe.directions_list,
+    ingredients: recipe.ingredients_list,
+    image_url: recipe.image_url,
+    prep_time: recipe.friendly_prep_time,
+    chef: recipe.chef,
+    created_at: recipe.friendly_created_at
   }
 end
