@@ -4,5 +4,6 @@
   directions: @recipe.directions,
   prep_time: @recipe.prep_time,
   ingredients: @recipe.ingredients,
-  chef: @recipe.chef
+  chef: @recipe.chef,
+  current_user: current_user.email 
 }
