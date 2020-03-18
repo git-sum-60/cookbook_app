@@ -33,9 +33,13 @@ class Api::RecipesController < ApplicationController
       directions: params[:input_directions], 
       prep_time: params[:input_prep_time], 
       image_url: params[:input_image_url], 
-      title: params[:input_title]
+      title: params[:input_title],
+      user_id: current_user.id
     )
     @recipe.save
+    p "*" * 88
+    p @recipe.errors.full_messages
+    p "*" * 88
 
     render 'show.json.jb'
   end
