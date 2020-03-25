@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # get "/photos" => "photos#index"
   
   get "/recipes" => "recipes#index"
+  get "/recipes/new" => "recipes#new"
   get "/recipes/:id" => "recipes#show"
+  post "/recipes" => "recipes#create"
   
   namespace :api do
     get "/recipes" => "recipes#index" 
