@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   #   get "/photos" => "photos#index"
   # end
   get "/recipes" => "recipes#index"
+  get "/recipes/:id" => "recipes#show"
   
   namespace :api do
     get "/recipes" => "recipes#index" 
