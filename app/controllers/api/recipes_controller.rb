@@ -22,7 +22,7 @@ class Api::RecipesController < ApplicationController
   def show
     the_id = params[:id]
     @recipe = Recipe.find_by(id: the_id)
-    render 'show.json.jb'
+    render 'show.html.erb'
   end
 
   def create
