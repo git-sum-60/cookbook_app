@@ -7,8 +7,15 @@ I am going to show a form at some point in the future
   <p>prep time: <input type="text" name="prep_time"></p>
   <p>image url: <input type="text" name="image_url"></p>
   <p>chef: <input type="text" name="chef"></p>
-  <p>user id: <input type="text" name="user_id"></p>
 
+
+  <label for="users">Choose a user:</label>
+
+  <select id="users" name="user_id">
+    <% @users.each do |user| %>
+      <option value="<%= user.id %>"><%= user.name %></option>
+    <% end %>
+  </select>
 
   <input type="submit" value="Make a new recipe">
 </form>
