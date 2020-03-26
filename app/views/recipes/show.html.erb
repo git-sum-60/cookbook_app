@@ -10,3 +10,8 @@
 <img src="<%= @recipe.image_url %>">
 
 <a href="/recipes/<%= @recipe.id %>">Edit this recipe</a>
+
+<form action="/recipes/<%= @recipe.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete this product">
+</form>
