@@ -50,11 +50,11 @@ class Api::RecipesController < ApplicationController
     @recipe = Recipe.find_by(id: the_id)
     # update the recipe (create)
 
-    @recipe.title = params[:input_title] || @recipe.title
-    @recipe.chef = params[:input_chef] || @recipe.chef
-    @recipe.ingredients = params[:input_ingredients] || @recipe.ingredients
-    @recipe.prep_time = params[:input_prep_time] || @recipe.prep_time
-    @recipe.directions = params[:input_directions] || @recipe.directions
+    @recipe.title = params[:title] || @recipe.title
+    @recipe.chef = params[:chef] || @recipe.chef
+    @recipe.ingredients = params[:ingredients] || @recipe.ingredients
+    @recipe.prep_time = params[:prep_time] || @recipe.prep_time
+    @recipe.directions = params[:directions] || @recipe.directions
 
     @recipe.save
 
