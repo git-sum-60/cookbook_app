@@ -22,18 +22,18 @@ class Api::RecipesController < ApplicationController
   def show
     the_id = params[:id]
     @recipe = Recipe.find_by(id: the_id)
-    render 'show.html.erb'
+    render 'show.json.jb'
   end
 
   def create
     # make a new Recipe
     @recipe = Recipe.new(
-      chef: params[:input_chef],
-      ingredients: params[:input_ingredients], 
-      directions: params[:input_directions], 
-      prep_time: params[:input_prep_time], 
-      image_url: params[:input_image_url], 
-      title: params[:input_title],
+      chef: params[:chef],
+      ingredients: params[:ingredients], 
+      directions: params[:directions], 
+      prep_time: params[:prep_time], 
+      image_url: params[:image_url], 
+      title: params[:title],
       user_id: current_user.id
     )
     @recipe.save
