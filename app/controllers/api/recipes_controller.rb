@@ -1,9 +1,9 @@
 class Api::RecipesController < ApplicationController
   def index
 
-    # p "THIS IS RIGHT BEFORE CURRENT USER"
-    # p current_user
-    # p "THIS IS RIGHT AFTER CURRENT USER"
+    p "THIS IS RIGHT BEFORE CURRENT USER"
+    p current_user
+    p "THIS IS RIGHT AFTER CURRENT USER"
     
     # if params[:search]
     #   @recipes = Recipe.where("ingredients LIKE ?", "%#{params[:search]}%")
