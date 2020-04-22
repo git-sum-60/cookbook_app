@@ -55,6 +55,7 @@ class Api::RecipesController < ApplicationController
     @recipe.ingredients = params[:ingredients] || @recipe.ingredients
     @recipe.prep_time = params[:prep_time] || @recipe.prep_time
     @recipe.directions = params[:directions] || @recipe.directions
+    @recipe.image_url = params[:image_url] || @recipe.image_url
 
     @recipe.save
 
