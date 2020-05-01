@@ -33,4 +33,34 @@ RSpec.describe "Recipes", type: :request do
       expect(recipe['title']).to eq('pineapple')
     end
   end
+  describe "POST /api/recipes" do
+    it 'should create a new recipe in the db' do
+      user = User.create!(email: "kerry@keryy.com", password: "password", name: "kary")
+
+      jwt = JWT.encode(
+        {
+          user_id: user.id, # the data to encode
+          exp: 24.hours.from_now.to_i # the expiration time
+        },
+        Rails.application.credentials.fetch(:secret_key_base), # the secret key
+        "HS256" # the encryption algorithm
+      )
+
+      p jwt
+      
+      post "/api/recipes", params: {
+        title: "asparagus",  
+        ingredients: "di", 
+        directions: "wait", 
+        prep_time: 99999
+      }, headers: {
+        "Authorization" => "Bearer #{jwt}"
+      }
+
+      recipe = JSON.parse(response.body)
+
+      expect(response).to have_http_status(200)
+      expect(recipe['title']).to eq('asparagus')
+    end
+  end
 end
