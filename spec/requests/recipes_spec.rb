@@ -18,4 +18,19 @@ RSpec.describe "Recipes", type: :request do
       expect(recipes.length).to eq(1)
     end
   end
+  describe "GET /api/recipes/:id" do
+    it 'should return one recipe based on its id' do
+      user = User.create!(email: "kerry@keryy.com", password: "password", name: "kary")
+
+      recipe_db = Recipe.create!(title: "pineapple", ingredients: "pine + apples", directions: "slice the pineapple", prep_time: 5, user_id: user.id)
+
+
+      get "/api/recipes/#{recipe_db.id}"
+
+      recipe = JSON.parse(response.body)
+
+      expect(response).to have_http_status(200)
+      expect(recipe['title']).to eq('pineapple')
+    end
+  end
 end
