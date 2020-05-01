@@ -1,4 +1,5 @@
 class Api::RecipesController < ApplicationController
+  before_action :authenticate_user, only: [:create]
   def index
 
     # p "THIS IS RIGHT BEFORE CURRENT USER"
@@ -37,9 +38,9 @@ class Api::RecipesController < ApplicationController
       user_id: current_user.id
     )
     @recipe.save
-    p "*" * 88
-    p @recipe.errors.full_messages
-    p "*" * 88
+    # p "*" * 88
+    # p @recipe.errors.full_messages
+    # p "*" * 88
 
     render 'show.json.jb'
   end

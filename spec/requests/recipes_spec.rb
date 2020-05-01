@@ -10,7 +10,7 @@ RSpec.describe "Recipes", type: :request do
       
       get "/api/recipes"
 
-      p JSON.parse(response.body)
+      
       
       recipes = JSON.parse(response.body)
       
@@ -46,7 +46,7 @@ RSpec.describe "Recipes", type: :request do
         "HS256" # the encryption algorithm
       )
 
-      p jwt
+     
       
       post "/api/recipes", params: {
         title: "asparagus",  
@@ -61,6 +61,18 @@ RSpec.describe "Recipes", type: :request do
 
       expect(response).to have_http_status(200)
       expect(recipe['title']).to eq('asparagus')
+    end
+    it 'should prevent someone who is not logged in from creating a recipe' do
+      post "/api/recipes", params: {
+        title: "brussels sprouts",  
+        ingredients: "bruss+ sproout", 
+        directions: "don't wait", 
+        prep_time: 23432
+      }
+
+      recipe = JSON.parse(response.body)
+
+      expect(response).to have_http_status(401)      
     end
   end
 end
